@@ -1,0 +1,33 @@
+package scheduler;
+
+/**
+ * 
+ * @author Brianna Wurtsmith, comments by Matt Evett
+ * 
+ *
+ * Implementations of this interface are meant to simulate the work of a process
+ * in our simulated system.
+ * The interface contains a single method, doWork().  Each Job contains an object
+ * (its "work") that
+ * implements this interface. When a Job is running it will invoke doWork() on 
+ * its work about every 10msec.  Your implementation of doWork() should return in 
+ * no more than a few milliseconds.  In my solution I just had doWork generate
+ * a bit of output.
+ * Because in the follow-up to this assignment Job will rely on being able to handle 
+ * interrupts to implement time sharing,
+ * your implementation of doWork should not invoke interrupted() or isInterrupted()
+ * and it should not catch InterruptExceptions (or, if it does, it should rethrow
+ * them).  */
+
+public class MyOwnWorkFactory implements JobWorkable {
+
+	@Override
+	public void doWork() {
+		
+		String nameOfCurrentThread = Thread.currentThread().getName();
+		
+		System.out.println("Some work is done by " + nameOfCurrentThread);
+
+	}
+
+}
